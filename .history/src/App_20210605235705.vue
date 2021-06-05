@@ -1,4 +1,6 @@
 <template>
+  <MemHole />
+  <router-link to="/process">Next</router-link>
   <router-view />
 </template>
 <script>

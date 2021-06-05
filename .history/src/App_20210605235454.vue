@@ -1,4 +1,7 @@
 <template>
+  <h3>Welcome to our memory allocation emulator program</h3>
+  <MemHole />
+  <router-link to="/process">Next</router-link>
   <router-view />
 </template>
 <script>

@@ -21,7 +21,6 @@
       />
     </div>
   </div>
-  <router-link to="/process">Next</router-link>
 </template>
 <script>
 export default {

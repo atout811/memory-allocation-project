@@ -1,4 +1,7 @@
 <template>
+  <h3>Welcome to our memory allocation emulator program</h3>
+  <MemHole />
+  <router-link to="/process">Next</router-link>
   <router-view />
 </template>
 <script>
@@ -18,13 +21,5 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-a {
-  font-weight: bold;
-  color: #2c3e50;
-
-  &.router-link-exact-active {
-    color: #42b983;
-  }
 }
 </style>
