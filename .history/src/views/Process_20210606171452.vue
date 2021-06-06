@@ -29,7 +29,7 @@
       </div>
     </div>
   </div>
-  <router-link to="/methods" @click="handleNext">Next</router-link>
+  <router-link to="/process" @click="handleNext">Next</router-link>
 </template>
 <script>
 export default {

@@ -7,9 +7,9 @@
 
 <script>
 export default {
-  data: () => ({
-    items: ["First Fit", "Best Fit"],
-  }),
+  data() {
+    items: ["First Fit", "Best Fit"];
+  },
 };
 </script>
 

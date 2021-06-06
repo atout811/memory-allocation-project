@@ -7,7 +7,7 @@
   <div class="holes">
     <input type="button" value="Add Hole" @click="handleClick" />
     <div v-for="(hole, index) in holes" :key="index">
-      <span>Enter Hole start address</span>
+      <span>Enter Hole start adress</span>
       <input
         type="text"
         placeholder="Enter Start address"
@@ -21,10 +21,9 @@
       />
     </div>
   </div>
-  <router-link to="/process" @click="handleNext">Next</router-link>
+  <router-link to="/process" @click="handlNext">Next</router-link>
 </template>
 <script>
-import store from "../store";
 export default {
   name: "MemHole",
   store,
@@ -40,10 +39,10 @@ export default {
       console.log(this.holes);
     },
     handleNext: function () {
-      console.log(this.$store.state);
-      this.$store.state.input.memSize = this.memorySize;
-      this.$store.state.input.Holes = this.holes;
-      console.log(this.$store.state);
+      console.log(this.$store);
+      this.$store.input.memSize = this.memorySize;
+      this.$store.input.Holes = holes;
+      console.log(this.$store);
     },
   },
 };

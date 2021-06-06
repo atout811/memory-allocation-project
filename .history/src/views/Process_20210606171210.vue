@@ -29,7 +29,6 @@
       </div>
     </div>
   </div>
-  <router-link to="/methods" @click="handleNext">Next</router-link>
 </template>
 <script>
 export default {
@@ -55,12 +54,6 @@ export default {
         { name: "", size: "" },
       ]),
         console.log(this.processes);
-    },
-    handleNext: function () {
-      console.log(this.$store.state);
-      this.$store.state.input.Processes = this.processes;
-
-      console.log(this.$store.state);
     },
   },
 };

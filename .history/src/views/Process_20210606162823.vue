@@ -10,26 +10,25 @@
           value="Add Segment"
           @click="handleProcess(index)"
         />
-        <div v-for="(segment, i) in processes[index].segments" :key="i">
+        <div v-for="(segment, i) in process.segments" :key="i">
           <div class="segments">
             <span>Enter Name of Segment</span>
             <input
               type="text"
               placeholder="Enter Name of sgement"
-              v-model="process.segments[i].name"
+              v-model="process[index].segments[i].name"
             />
             <span>Enter Size of Segment</span>
             <input
               type="text"
               placeholder="Enter Size of sgement"
-              v-model="process.segments[i].size"
+              v-model="process[index].segments[i].size"
             />
           </div>
         </div>
       </div>
     </div>
   </div>
-  <router-link to="/methods" @click="handleNext">Next</router-link>
 </template>
 <script>
 export default {
@@ -38,14 +37,13 @@ export default {
     return {
       processes: [],
       segNum: "",
-      procesnum: 0,
     };
   },
   methods: {
-    handleClick: function () {
+    handleClick: function (index) {
       this.processes = [
         ...this.processes,
-        { name: "P" + this.procesnum++, segments: [] },
+        { name: ` P ${index} `, segments: [] },
       ];
       console.log(this.processes);
     },
@@ -55,12 +53,6 @@ export default {
         { name: "", size: "" },
       ]),
         console.log(this.processes);
-    },
-    handleNext: function () {
-      console.log(this.$store.state);
-      this.$store.state.input.Processes = this.processes;
-
-      console.log(this.$store.state);
     },
   },
 };

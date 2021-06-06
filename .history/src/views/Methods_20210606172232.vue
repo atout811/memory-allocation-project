@@ -6,11 +6,7 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-    items: ["First Fit", "Best Fit"],
-  }),
-};
+export default {};
 </script>
 
 <style scoped>

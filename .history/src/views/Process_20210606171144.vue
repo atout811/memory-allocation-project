@@ -11,6 +11,7 @@
           @click="handleProcess(index)"
         />
         <div v-for="(segment, i) in processes[index].segments" :key="i">
+          {{ process }}
           <div class="segments">
             <span>Enter Name of Segment</span>
             <input
@@ -29,7 +30,6 @@
       </div>
     </div>
   </div>
-  <router-link to="/methods" @click="handleNext">Next</router-link>
 </template>
 <script>
 export default {
@@ -45,7 +45,7 @@ export default {
     handleClick: function () {
       this.processes = [
         ...this.processes,
-        { name: "P" + this.procesnum++, segments: [] },
+        { name: "P" + ++this.procesnum, segments: [] },
       ];
       console.log(this.processes);
     },
@@ -55,12 +55,6 @@ export default {
         { name: "", size: "" },
       ]),
         console.log(this.processes);
-    },
-    handleNext: function () {
-      console.log(this.$store.state);
-      this.$store.state.input.Processes = this.processes;
-
-      console.log(this.$store.state);
     },
   },
 };
