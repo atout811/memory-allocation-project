@@ -1,0 +1,18 @@
+{
+  "memSize": "1312412",
+  "Holes": [
+    { "starting": "asgadh", "size": "sdhdhdf" },
+    { "starting": "dsfhdfsh", "size": "fhddfsh" }
+  ],
+  "Processes": [
+    { "name": "P0", "segments": [{ "name": "dsagdsh", "size": "dfhsdfh" }] },
+    {
+      "name": "P1",
+      "segments": [
+        { "name": "dfshdf", "size": "hfdshdsfh" },
+        { "name": "hfdsh", "size": "hfdshdfh" }
+      ]
+    }
+  ],
+  "Method": "best-fit"
+}
