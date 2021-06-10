@@ -34,7 +34,6 @@
           If you need to re-Enter the values
           <router-link to="/"> Click here </router-link>
         </div>
-        <div class="warn" style="color: red">*{{ waitingProcess() }}*</div>
       </div>
     </div>
     <div class="mem">
@@ -416,13 +415,6 @@ export default {
       // deleteProcess("p2",false)
       // deleteProcess("p1",false)
       // deleteProcess("p4",false)
-    },
-    waitingProcess: function () {
-      let pro;
-      this.$store.state.input.Processes.forEach((item) =>
-        item[0] ? (pro = item[2]) : null
-      );
-      return `${pro} is waiting`;
     },
   },
   mounted: function () {

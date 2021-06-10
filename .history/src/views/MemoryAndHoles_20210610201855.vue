@@ -3,10 +3,7 @@
     <div class="wrapper">
       <h3>Welcome to our memory allocation emulator program</h3>
       <div class="warn">
-        <div class="error" v-if="err">Please fill all of the fields</div>
-        <div class="error" v-if="error.find((element) => element == 'value')">
-          the value you've entered is bigger than memory size
-        </div>
+        {{ err ? handleNext() : null }}
       </div>
       <div class="memory">
         <span>Enter Memory Size </span>
@@ -82,15 +79,15 @@ export default {
   methods: {
     handleClick: function () {
       this.holes = [...this.holes, { starting: "", size: "" }];
+      console.log(this.holes);
     },
     handleNext: function () {
       console.log("hooollesss", this.holes);
       let length;
-      if (this.holes.length) {
-        for (let item of this.holes) {
-          for (let [key, value] of Object.entries(item)) {
-            if (value == "") length = 1;
-          }
+      for (item in this.holes) {
+        cosnole.log("iteeeeeeeeeeeeeeeeeeeeeeeeeeeem", item);
+        for (let [key, value] of item) {
+          if (value == "") length = 1;
         }
       }
       if (!this.memorySize.length || length) {
@@ -100,7 +97,7 @@ export default {
       if (this.error.length) return alert("solve the error messages");
       this.$store.state.input.memSize = this.memorySize;
       this.$store.state.input.Holes = this.holes;
-
+      console.log(this.$store.state);
       this.$router.push("/process");
     },
     Validation: function (e) {
@@ -111,17 +108,15 @@ export default {
         return this.error.push(e.target.name);
       }
       if (Number(e.target.value) > Number(this.memorySize)) {
-        this.error.push("value");
-        return "";
+        this.error.push(e.target.name);
+        return alert("the value you've entered is bigger than memory size");
       } else {
         this.error = this.error.filter((item) => item != e.target.name);
       }
-      if (/^\d+$/.test(e.target.value)) {
-        this.error = this.error.filter((item) => item != "value");
+      if (/^\d+$/.test(e.target.value))
         return (this.error = this.error.filter(
           (item) => item != e.target.name
         ));
-      }
     },
   },
 };

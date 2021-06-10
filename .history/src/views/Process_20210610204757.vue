@@ -59,7 +59,6 @@ export default {
       error: [],
       segNum: "",
       err: [],
-      procesnum: 0,
     };
   },
   methods: {
@@ -81,13 +80,8 @@ export default {
       if (!this.processes.length) {
         this.err[0] = 1;
         return "Please fill all of the fields";
-      } else {
-        this.err[0] = 0;
       }
-      if (this.error.length) {
-        this.err[1] = 1;
-        return "solve the error messages";
-      }
+      if (this.error.length) return "solve the error messages";
       console.log(this.$store.state);
       this.$store.state.input.Processes = this.processes;
       this.$router.push("/methods");
@@ -97,7 +91,7 @@ export default {
     Validation: function (e) {
       if (!/^\d+$/.test(e.target.value)) {
         if (this.error.find((element) => element == e.target.name)) return;
-
+        this.err[1] = 1;
         return this.error.push(e.target.name);
       }
       if (/^\d+$/.test(e.target.value))

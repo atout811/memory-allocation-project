@@ -59,7 +59,6 @@ export default {
       error: [],
       segNum: "",
       err: [],
-      procesnum: 0,
     };
   },
   methods: {

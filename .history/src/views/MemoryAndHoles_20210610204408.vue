@@ -3,7 +3,8 @@
     <div class="wrapper">
       <h3>Welcome to our memory allocation emulator program</h3>
       <div class="warn">
-        <div class="error" v-if="err">Please fill all of the fields</div>
+     <div class="error" v-if="err">
+          Please fill all of the fields
         <div class="error" v-if="error.find((element) => element == 'value')">
           the value you've entered is bigger than memory size
         </div>

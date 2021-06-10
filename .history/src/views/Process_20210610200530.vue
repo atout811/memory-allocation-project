@@ -1,10 +1,6 @@
 <template>
   <transition>
     <div class="processes">
-      <div class="warn">
-        <div class="error" v-if="err[1]">solve the error messages</div>
-        <div class="error" v-if="err[0]">Please fill all of the fields</div>
-      </div>
       <input type="button" value="Add Process" @click="handleClick" />
 
       <div v-for="(process, index) in processes" :key="index">
@@ -58,7 +54,6 @@ export default {
       processes: [],
       error: [],
       segNum: "",
-      err: [],
       procesnum: 0,
     };
   },
@@ -78,16 +73,8 @@ export default {
         console.log(this.processes);
     },
     handleNext: function () {
-      if (!this.processes.length) {
-        this.err[0] = 1;
-        return "Please fill all of the fields";
-      } else {
-        this.err[0] = 0;
-      }
-      if (this.error.length) {
-        this.err[1] = 1;
-        return "solve the error messages";
-      }
+      if (!this.processes.length) return alert("Please fill all of the fields");
+      if (this.error.length) return alert("solve the error messages");
       console.log(this.$store.state);
       this.$store.state.input.Processes = this.processes;
       this.$router.push("/methods");

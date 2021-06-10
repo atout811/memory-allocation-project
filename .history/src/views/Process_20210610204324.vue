@@ -2,8 +2,8 @@
   <transition>
     <div class="processes">
       <div class="warn">
-        <div class="error" v-if="err[1]">solve the error messages</div>
-        <div class="error" v-if="err[0]">Please fill all of the fields</div>
+        <div class="error" v-if="error.length">solve the error messages</div>
+        <div class="error" v-if="err">Please fill all of the fields</div>
       </div>
       <input type="button" value="Add Process" @click="handleClick" />
 
@@ -58,8 +58,7 @@ export default {
       processes: [],
       error: [],
       segNum: "",
-      err: [],
-      procesnum: 0,
+      err: 0,
     };
   },
   methods: {
@@ -79,15 +78,10 @@ export default {
     },
     handleNext: function () {
       if (!this.processes.length) {
-        this.err[0] = 1;
+        this.err = 1;
         return "Please fill all of the fields";
-      } else {
-        this.err[0] = 0;
       }
-      if (this.error.length) {
-        this.err[1] = 1;
-        return "solve the error messages";
-      }
+      if (this.error.length) return "solve the error messages";
       console.log(this.$store.state);
       this.$store.state.input.Processes = this.processes;
       this.$router.push("/methods");

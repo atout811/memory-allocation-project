@@ -34,7 +34,6 @@
           If you need to re-Enter the values
           <router-link to="/"> Click here </router-link>
         </div>
-        <div class="warn" style="color: red">*{{ waitingProcess() }}*</div>
       </div>
     </div>
     <div class="mem">
@@ -344,7 +343,7 @@ export default {
         });
       }
 
-      const deleteProcess = (processName, isOld) => {
+      function deleteProcess(processName, isOld) {
         // create a hole
         console.log(
           "--------------------------------------------------------------------------------"
@@ -380,7 +379,6 @@ export default {
             holes.push([starting, size]);
           });
           processes = AfterDelete;
-          this.$store.state.input.Processes = AfterDelete;
           console.log(processes);
           console.log("hey", this.$store.state.input.Processes);
         }
@@ -389,7 +387,7 @@ export default {
         concateHoles();
         // [null,{code:10,data:30,stack:16},"p1"]
         render();
-      };
+      }
       orderHoles();
       concateHoles();
       generateOldProcess();
@@ -411,18 +409,11 @@ export default {
       }
       render();
       if (delProcess.length) {
-        deleteProcess(delProcess, isOld, this.$store.state.input.Processes);
+        deleteProcess(delProcess, isOld);
       }
       // deleteProcess("p2",false)
       // deleteProcess("p1",false)
       // deleteProcess("p4",false)
-    },
-    waitingProcess: function () {
-      let pro;
-      this.$store.state.input.Processes.forEach((item) =>
-        item[0] ? (pro = item[2]) : null
-      );
-      return `${pro} is waiting`;
     },
   },
   mounted: function () {

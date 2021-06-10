@@ -3,9 +3,9 @@
     <div class="wrapper">
       <h3>Welcome to our memory allocation emulator program</h3>
       <div class="warn">
-        <div class="error" v-if="err">Please fill all of the fields</div>
+        {{ err ? handleNext() : null }}
         <div class="error" v-if="error.find((element) => element == 'value')">
-          the value you've entered is bigger than memory size
+          Please Enter Positive Integer Number
         </div>
       </div>
       <div class="memory">
@@ -112,16 +112,14 @@ export default {
       }
       if (Number(e.target.value) > Number(this.memorySize)) {
         this.error.push("value");
-        return "";
+        return "the value you've entered is bigger than memory size";
       } else {
         this.error = this.error.filter((item) => item != e.target.name);
       }
-      if (/^\d+$/.test(e.target.value)) {
-        this.error = this.error.filter((item) => item != "value");
+      if (/^\d+$/.test(e.target.value))
         return (this.error = this.error.filter(
           (item) => item != e.target.name
         ));
-      }
     },
   },
 };

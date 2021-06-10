@@ -34,7 +34,7 @@
           If you need to re-Enter the values
           <router-link to="/"> Click here </router-link>
         </div>
-        <div class="warn" style="color: red">*{{ waitingProcess() }}*</div>
+        {{ waitingProcess() }}
       </div>
     </div>
     <div class="mem">

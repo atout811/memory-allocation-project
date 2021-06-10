@@ -59,7 +59,6 @@ export default {
       error: [],
       segNum: "",
       err: [],
-      procesnum: 0,
     };
   },
   methods: {
@@ -81,8 +80,6 @@ export default {
       if (!this.processes.length) {
         this.err[0] = 1;
         return "Please fill all of the fields";
-      } else {
-        this.err[0] = 0;
       }
       if (this.error.length) {
         this.err[1] = 1;
